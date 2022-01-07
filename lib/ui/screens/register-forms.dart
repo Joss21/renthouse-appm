@@ -1,10 +1,10 @@
 import 'dart:ui';
 
+import 'package:RentHouse/bloc/register-bloc.dart';
+import 'package:RentHouse/bloc/register_bloc_provider.dart';
+import 'package:RentHouse/ui/widgets/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:renthouse/bloc/register-bloc.dart';
-import 'package:renthouse/bloc/register_bloc_provider.dart';
-import 'package:renthouse/ui/widgets/default_button.dart';
 /* import 'package:renthouse/bloc/register-bloc.dart';
 import 'package:renthouse/bloc/register_bloc_provider.dart';
 import 'package:renthouse/ui/widgets/default_button.dart';

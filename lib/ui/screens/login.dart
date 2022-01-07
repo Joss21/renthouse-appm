@@ -1,8 +1,7 @@
+import 'package:RentHouse/bloc/login_bloc.dart';
+import 'package:RentHouse/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:renthouse/bloc/login_bloc.dart';
-import 'package:renthouse/ui/widgets/widgets.dart';
-/* import 'package:renthouse/bloc/login_bloc.dart';
-import 'package:renthouse/ui/widgets/widgets.dart'; */
+
 import 'login-forms.dart';
 
 class Login extends StatelessWidget {

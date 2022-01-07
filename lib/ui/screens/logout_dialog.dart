@@ -1,7 +1,7 @@
+import 'package:RentHouse/bloc/logout_bloc.dart';
+import 'package:RentHouse/bloc/logout_bloc_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:renthouse/bloc/logout_bloc.dart';
-import 'package:renthouse/bloc/logout_bloc_provider.dart';
 /* import 'package:renthouse/bloc/logout_bloc.dart';
 import 'package:renthouse/bloc/logout_bloc_provider.dart';
 import 'package:renthouse/ui/pallete.dart'; */

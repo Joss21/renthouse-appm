@@ -1,10 +1,11 @@
+import 'package:RentHouse/bloc/logout_bloc_provider.dart';
+import 'package:RentHouse/bloc/reset_password_bloc_provider.dart';
+import 'package:RentHouse/bloc/settings_bloc.dart';
+import 'package:RentHouse/bloc/settings_bloc_provider.dart';
+import 'package:RentHouse/ui/pallete.dart';
+import 'package:RentHouse/ui/screens/screens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:renthouse/bloc/logout_bloc_provider.dart';
-import 'package:renthouse/bloc/reset_password_bloc_provider.dart';
-import 'package:renthouse/bloc/settings_bloc.dart';
-import 'package:renthouse/bloc/settings_bloc_provider.dart';
-import 'package:renthouse/ui/screens/screens.dart';
 /* import 'package:renthouse/bloc/logout_bloc_provider.dart';
 import 'package:renthouse/bloc/reset_password_bloc_provider.dart';
 import 'package:renthouse/bloc/settings_bloc.dart';
@@ -66,9 +67,9 @@ class SettingScreenState extends State<SettingsScreen> {
                           Container(
                             margin: EdgeInsets.all(20),
                           ),
-                          Text('Perfil',
+                          Text('Mi Perfil',
                               style:
-                                  TextStyle(color: Colors.black, fontSize: 20)),
+                                  TextStyle(color: Colors.black, fontSize: 30)),
                           Container(
                             child: userNameText(),
                             height: 50,
@@ -80,11 +81,18 @@ class SettingScreenState extends State<SettingsScreen> {
                       // A flexible child that will grow to fit the viewport but
                       // still be at least as big as necessary to fit its contents.
                       child: Column(
-                          //
+                          //child: Divider()
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               margin: EdgeInsets.all(5),
+                            ),
+                            const Divider(
+                              height: 10,
+                              thickness: 1,
+                              indent: 30,
+                              endIndent: 0,
+                              color: Colors.black,
                             ),
                             SizedBox(
                                 child: TextButton(
@@ -94,7 +102,9 @@ class SettingScreenState extends State<SettingsScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Text('Cambiar la contraseña',
+                                          Icon(Icons.security_rounded,
+                                              color: kOrange),
+                                          Text(' Cambiar la contraseña',
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 18)),
@@ -116,7 +126,8 @@ class SettingScreenState extends State<SettingsScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Text('Ayuda',
+                                          Icon(Icons.help, color: kOrange),
+                                          Text(' Ayuda',
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 18)),
@@ -135,7 +146,11 @@ class SettingScreenState extends State<SettingsScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Text('Acerca de',
+                                          Icon(
+                                            Icons.info,
+                                            color: kOrange,
+                                          ),
+                                          Text(' Acerca de',
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 18)),
@@ -154,7 +169,11 @@ class SettingScreenState extends State<SettingsScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Text('Salir',
+                                          Icon(
+                                              Icons
+                                                  .subdirectory_arrow_right_outlined,
+                                              color: kOrange),
+                                          Text(' Salir',
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 18)),

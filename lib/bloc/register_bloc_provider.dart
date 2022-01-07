@@ -1,5 +1,5 @@
+import 'package:RentHouse/bloc/register-bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:renthouse/bloc/register-bloc.dart';
 
 class RegisterBlocProvider extends InheritedWidget {
   final bloc = RegisterBloc();

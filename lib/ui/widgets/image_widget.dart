@@ -1,8 +1,8 @@
+import 'package:RentHouse/models/post-details.dart';
+import 'package:RentHouse/ui/screens/home-details.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:renthouse/models/post-details.dart';
-import 'package:renthouse/ui/screens/home-details.dart';
 /* import 'package:renthouse/models/post-details.dart';
 import 'package:renthouse/ui/screens/home-details.dart'; */
 

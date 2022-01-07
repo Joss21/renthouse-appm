@@ -1,15 +1,11 @@
+import 'package:RentHouse/bloc/settings_bloc_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:renthouse/bloc/settings_bloc_provider.dart';
+//import 'package:renthouse/bloc/settings_bloc_provider.dart';
 
 import '../pallete.dart';
 import 'add-posts.dart';
 import 'home_page.dart';
 import 'settings_screen.dart';
-//import 'package:renthouse/bloc/settings_bloc_provider.dart';
-//import 'package:renthouse/ui/pallete.dart';
-//import 'package:renthouse/ui/screens/home_page.dart';
-//import 'package:renthouse/ui/screens/screens.dart';
-//import 'package:renthouse/ui/screens/settings_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -37,18 +33,18 @@ class _HomeState extends State<Home> {
     ];
 
     final List<String> _titles = [
-      "RentHouse Quito",
-      "Describir inmueble",
-      "Ajustes"
+      "RENTHOUSE QUITO",
+      "DESCRIBIR INMUEBLE",
+      "AJUSTES"
     ];
 
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
-          backgroundColor: kOrange,
+          backgroundColor: Colors.white,
           title: Text(_titles[_currentIndex],
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white))),
+              style: TextStyle(color: kOrange, fontWeight: FontWeight.bold))),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,

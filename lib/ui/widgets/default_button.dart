@@ -15,9 +15,12 @@ class DefaultButton extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16), color: kOrange),
+          borderRadius: BorderRadius.circular(16),
+          color: kOrange,
+          border: new Border.all(color: kOrange, width: 2.0),
+        ),
         height: size.height * 0.08,
-      width: size.width * 0.8,
+        width: size.width * 0.8,
         child: new OutlinedButton(
           style: outlineButtonStyle,
           child: Text(
@@ -37,7 +40,7 @@ class DefaultButton extends StatelessWidget {
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(16)),
     ),
-  ).copyWith( 
+  ).copyWith(
     side: MaterialStateProperty.resolveWith<BorderSide>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.pressed))
@@ -47,11 +50,10 @@ class DefaultButton extends StatelessWidget {
           );
         else
           return BorderSide(
-           // color: Colors.black,
+            // color: Colors.black,
             width: 1,
           );
       },
     ),
   );
-  
 }

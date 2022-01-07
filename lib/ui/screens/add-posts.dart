@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:RentHouse/models/post-details.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -11,7 +12,6 @@ import 'package:intl/intl.dart';
 //import 'package:renthouse/models/post-details.dart';
 //import 'package:renthouse/ui/widgets/menu_widget.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:renthouse/models/post-details.dart';
 
 import '../pallete.dart';
 import 'home.dart';
@@ -166,7 +166,7 @@ class _AddPostState extends State<AddPost> {
                         labelText: "Fecha",
                         icon: new Icon(
                           Icons.date_range,
-                          color: Colors.grey,
+                          color: kOrange,
                         ),
                         // border: InputBorder.none,
                       ),
@@ -183,7 +183,7 @@ class _AddPostState extends State<AddPost> {
                         labelText: "Número de teléfono",
                         icon: new Icon(
                           Icons.phone,
-                          color: Colors.grey,
+                          color: kOrange,
                         ),
                         // border: InputBorder.none,
                       ),
@@ -197,7 +197,7 @@ class _AddPostState extends State<AddPost> {
                         labelText: "Dirección",
                         icon: new Icon(
                           Icons.house,
-                          color: Colors.grey,
+                          color: kOrange,
                         ),
                         // border: InputBorder.none,
                       ),
@@ -214,7 +214,7 @@ class _AddPostState extends State<AddPost> {
                           labelText: "Precio",
                           icon: new Icon(
                             Icons.attach_money,
-                            color: Colors.grey,
+                            color: kOrange,
                           ),
                           // border: InputBorder.none,
                         ),
@@ -232,7 +232,7 @@ class _AddPostState extends State<AddPost> {
                               labelText: "Dormitorios",
                               icon: new Icon(
                                 Icons.bed,
-                                color: Colors.grey,
+                                color: kOrange,
                               ),
                               // border: InputBorder.none,
                             ),
@@ -253,7 +253,7 @@ class _AddPostState extends State<AddPost> {
                               labelText: "Baños",
                               icon: new Icon(
                                 Icons.bathtub,
-                                color: Colors.grey,
+                                color: kOrange,
                               ),
                               // border: InputBorder.none,
                             ),
@@ -281,7 +281,7 @@ class _AddPostState extends State<AddPost> {
                               labelText: "Garajes",
                               icon: new Icon(
                                 Icons.garage,
-                                color: Colors.grey,
+                                color: kOrange,
                               ),
                               // border: InputBorder.none,
                             ),
@@ -302,7 +302,7 @@ class _AddPostState extends State<AddPost> {
                               labelText: "Cocina",
                               icon: new Icon(
                                 Icons.kitchen,
-                                color: Colors.grey,
+                                color: kOrange,
                               ),
                               // border: InputBorder.none,
                             ),
@@ -370,7 +370,7 @@ class _AddPostState extends State<AddPost> {
                           labelText: "Descripción",
                           icon: new Icon(
                             Icons.description,
-                            color: Colors.grey,
+                            color: kOrange,
                           ),
                           // border: InputBorder.none,
                         ),

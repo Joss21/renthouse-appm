@@ -30,12 +30,23 @@ class AboutUs extends StatelessWidget {
                     padding: EdgeInsets.all(16),
                     child: Text("Información",
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.black, fontSize: 22)),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold)),
                   ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 0),
                     child: Text("Nombre: RenthHouse Quito",
-                        style: TextStyle(color: Colors.black, fontSize: 16)),
+                        style: TextStyle(color: Colors.black, fontSize: 20)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(32, 16, 32, 0),
+                    child: Text(
+                      "RentHouse Quito es una aplicación móvil sencilla para publicar y buscar los inmuebles en la ciudad de Quito, esto es un gran ahorro de tiempo cuando necesita moverse rápidamente en alquilar de una propiedad, a través de esta aplicación pueden incrementar sus valores para sus clientes brindándoles información valiosa que ayude a guiar.",
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 0),

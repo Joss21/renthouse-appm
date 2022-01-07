@@ -1,7 +1,7 @@
 import 'dart:async';
 
+import 'package:RentHouse/repository/repository.dart';
 import 'package:flutter/material.dart';
-import 'package:renthouse/repository/repository.dart';
 
 import 'home.dart';
 import 'login.dart';

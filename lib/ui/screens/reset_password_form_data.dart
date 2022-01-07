@@ -1,8 +1,9 @@
+import 'package:RentHouse/bloc/reset_password_bloc.dart';
+import 'package:RentHouse/bloc/reset_password_bloc_provider.dart';
+import 'package:RentHouse/ui/widgets/default_button.dart';
 import 'package:flutter/material.dart';
-import 'package:renthouse/bloc/reset_password_bloc.dart';
-import 'package:renthouse/bloc/reset_password_bloc_provider.dart';
-import 'package:renthouse/ui/widgets/default_button.dart';
-import 'package:renthouse/ui/widgets/default_text_field.dart';
+
+import '../pallete.dart';
 /* import 'package:renthouse/bloc/reset_password_bloc.dart';
 import 'package:renthouse/bloc/reset_password_bloc_provider.dart';
 import 'package:renthouse/ui/widgets/default_button.dart';
@@ -64,6 +65,7 @@ class ResetPasswordFormState extends State<ResetPasswordForm> {
       ),
     );
   }
+
 /* 
   Widget userImage() {
     return StreamBuilder(
@@ -84,7 +86,79 @@ class ResetPasswordFormState extends State<ResetPasswordForm> {
           }
         });
   } */
+  Widget passwordField() {
+    return StreamBuilder(
+        stream: _bloc.password,
+        builder: (context, AsyncSnapshot<String> snapshot) {
+          return TextField(
+              keyboardType: TextInputType.emailAddress,
+              onChanged: _bloc.changePassword,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Contraseña nueva",
+                filled: true,
+                fillColor: Colors.white,
+                hintStyle: TextStyle(color: Colors.green[800]),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 3, color: Colors.orange),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(40.0),
+                  ),
+                ),
+                //prefixIcon: const Icon(Icons.email),
+              ));
+        });
+  }
 
+  Widget oldPasswordField() {
+    return StreamBuilder(
+        stream: _bloc.password,
+        builder: (context, AsyncSnapshot<String> snapshot) {
+          return TextField(
+              keyboardType: TextInputType.emailAddress,
+              onChanged: _bloc.changeOldPassword,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Contraseña actual",
+                filled: true,
+                fillColor: Colors.white,
+                hintStyle: TextStyle(color: Colors.green[800]),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 3, color: Colors.orange),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(40.0),
+                  ),
+                ),
+                //prefixIcon: const Icon(Icons.email),
+              ));
+        });
+  }
+
+  Widget reEnterPasswordField() {
+    return StreamBuilder(
+        stream: _bloc.password,
+        builder: (context, AsyncSnapshot<String> snapshot) {
+          return TextField(
+              keyboardType: TextInputType.emailAddress,
+              onChanged: _bloc.changeRePassword,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Confirmar la Contraseña",
+                filled: true,
+                fillColor: Colors.white,
+                hintStyle: TextStyle(color: Colors.green[800]),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 3, color: Colors.orange),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(40.0),
+                  ),
+                ),
+                //prefixIcon: const Icon(Icons.email),
+              ));
+        });
+  }
+
+/* 
   Widget passwordField() {
     return StreamBuilder(
         stream: _bloc.password,
@@ -109,13 +183,13 @@ class ResetPasswordFormState extends State<ResetPasswordForm> {
         builder: (context, AsyncSnapshot<String> snapshot) {
           return DefaultTextField(
               "Confirmar la contraseña",
-              _bloc.changeRePassword,
+              _bloc.changeRePassword, 
               true,
               TextInputType.text,
               Icon(Icons.lock));
         });
   }
-
+ */
   Widget button() {
     return DefaultButton("Guardar", () {
       String result = _bloc.validateFields();

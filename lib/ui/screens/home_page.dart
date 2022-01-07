@@ -1,15 +1,11 @@
+import 'package:RentHouse/models/post-details.dart';
+import 'package:RentHouse/ui/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:renthouse/models/post-details.dart';
-import 'package:renthouse/ui/widgets/image_widget.dart';
-//import 'package:renthouse/models/post-details.dart';
-//import 'package:renthouse/ui/widgets/image_widget.dart';
 
 import '../pallete.dart';
 
@@ -80,17 +76,22 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                "Buscar",
-                style: GoogleFonts.notoSans(
-                  fontSize: 16,
-                  color: Colors.black,
-                ),
-              ),
               TextField(
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.0),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: Colors.orange),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40.0),
+                    ),
+                  ),
+                  contentPadding: EdgeInsets.all(5.0),
                   hintText: '',
+                  labelText: 'Buscar',
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: kOrange,
+                  ),
+                  border: InputBorder.none,
                   hintStyle: GoogleFonts.notoSans(
                     fontSize: 24,
                     color: Colors.black,
@@ -111,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               Divider(
-                color: Colors.grey,
+                color: Colors.yellow,
                 thickness: .2,
               ),
               Container(
@@ -134,11 +135,12 @@ class _HomePageState extends State<HomePage> {
                             ),
                             child: new FlatButton(
                               child: new Text(
-                                'Precio 300-400',
+                                'Precio 150-250',
                                 style: GoogleFonts.notoSans(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.black,
+                                  backgroundColor: Color(0xFF9065),
                                 ),
                               ),
                               onPressed: () {

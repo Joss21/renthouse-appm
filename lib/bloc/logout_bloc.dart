@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:renthouse/repository/repository.dart';
+import 'package:RentHouse/repository/repository.dart';
 
 class LogoutBloc {
   final _repository = Repository();

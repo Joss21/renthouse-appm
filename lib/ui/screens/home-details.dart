@@ -1,12 +1,11 @@
+import 'package:RentHouse/models/post-details.dart';
+import 'package:RentHouse/ui/widgets/floating_widget.dart';
+import 'package:RentHouse/ui/widgets/house_widget.dart';
+import 'package:RentHouse/ui/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:renthouse/models/post-details.dart';
-import 'package:renthouse/ui/widgets/floating_widget.dart';
-import 'package:renthouse/ui/widgets/house_widget.dart';
-import 'package:renthouse/ui/widgets/menu_widget.dart';
-//import 'package:renthouse/models/post-details.dart';
 //import 'package:renthouse/ui/widgets/floating_widget.dart';
 //import 'package:renthouse/ui/widgets/house_widget.dart';
 //import 'package:renthouse/ui/widgets/menu_widget.dart';

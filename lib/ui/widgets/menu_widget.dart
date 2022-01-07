@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../pallete.dart';
 
 class MenuWidget extends StatelessWidget {
   final IconData iconImg;
@@ -24,9 +25,9 @@ class MenuWidget extends StatelessWidget {
         height: 50,
         width: 50,
         decoration: BoxDecoration(
-          color: conBackColor,
+          color: kOrange,
           border: Border.all(
-            color: Colors.grey[200],
+            color: kOrange,
           ),
           borderRadius: BorderRadius.circular(20.0),
         ),
