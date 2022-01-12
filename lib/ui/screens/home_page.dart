@@ -25,7 +25,7 @@ class Debouncer {
 }
 
 class HomePage extends StatefulWidget {
-  HomePage();
+  //HomePage();
 
   @override
   _HomePageState createState() {
@@ -34,7 +34,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  HomePage _bloc;
+  //HomePage _bloc;
   static List<House> houseList = List();
   House house;
   List<House> filteredHouses = List();
@@ -44,28 +44,74 @@ class _HomePageState extends State<HomePage> {
   final firestoreInstance = Firestore.instance;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    //_bloc = HomePageProvider.of(context);
-  }
-
-  @override
-  void dispose() {
-    //_bloc.dispose();
-    super.dispose();
+  void initState() {
+    super.initState();
+    try {
+      houseList.clear();
+      firestoreInstance
+          .collection("houses")
+          .getDocuments()
+          .then((querySnapshot) {
+        setState(() {
+          querySnapshot.documents.forEach((result) {
+            house = new House(
+                price: result['price'],
+                address: result['address'],
+                dormitorios: result['bedrooms'],
+                bathrooms: result['bathrooms'],
+                garages: result['garages'],
+                kitchen: result['kitchen'],
+                date: result['date'],
+                imageUrl: result['imageUrl'],
+                description: result['description'],
+                phone: result['phone']);
+            // print(key);
+            houseList.add(house);
+            filteredHouses = houseList;
+          });
+        });
+      });
+      // db = FirebaseDatabase.instance.reference().child("houses");
+      // db.keepSynced(true);
+      // db.once().then((DataSnapshot snapshot) {
+      //   setState(() {
+      //     Map<dynamic, dynamic> values = snapshot.value;
+      //     houseList.clear();
+      //     values.forEach((key, values) {
+      //       house = new House(
+      //           amount: values['amount'],
+      //           address: values['address'],
+      //           bedrooms: values['bedrooms'],
+      //           bathrooms: values['bathrooms'],
+      //           squarefoot: values['squarefoot'],
+      //           garages: values['garages'],
+      //           kitchen: values['kitchen'],
+      //           date: values['date'],
+      //           imageUrl: values['imageUrl'],
+      //           description: values['description'],
+      //           phone: values['phone']);
+      //       // print(key);
+      //       houseList.add(house);
+      //       filteredHouses = houseList;
+      //     });
+      //   });
+      // });
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     //final user = Provider.of<User>(context);
     // var screenWidth = MediaQuery.of(context).size.width;
-    SystemChrome.setSystemUIOverlayStyle(
+    /* SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.white,
       ),
-    );
+    ); */
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -78,10 +124,11 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               TextField(
                 decoration: InputDecoration(
+                  filled: true,
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.orange),
+                    borderSide: BorderSide(width: 1, color: Colors.transparent),
                     borderRadius: BorderRadius.all(
-                      Radius.circular(40.0),
+                      Radius.circular(25.0),
                     ),
                   ),
                   contentPadding: EdgeInsets.all(5.0),
@@ -93,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   border: InputBorder.none,
                   hintStyle: GoogleFonts.notoSans(
-                    fontSize: 24,
+                    fontSize: 21,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
@@ -140,14 +187,13 @@ class _HomePageState extends State<HomePage> {
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.black,
-                                  backgroundColor: Color(0xFF9065),
                                 ),
                               ),
                               onPressed: () {
                                 debouncer.run(() {
                                   setState(() {
                                     filteredHouses = houseList
-                                        .where((u) => u.price <= 400)
+                                        .where((u) => u.price <= 250)
                                         .toList();
                                   });
                                 });
@@ -185,7 +231,8 @@ class _HomePageState extends State<HomePage> {
                                   setState(() {
                                     filteredHouses = houseList
                                         .where((u) =>
-                                            u.bedrooms >= 3 && u.bedrooms <= 4)
+                                            u.dormitorios >= 3 &&
+                                            u.dormitorios <= 4)
                                         .toList();
                                   });
                                 });

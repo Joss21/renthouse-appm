@@ -6,9 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'package:renthouse/ui/widgets/floating_widget.dart';
-//import 'package:renthouse/ui/widgets/house_widget.dart';
-//import 'package:renthouse/ui/widgets/menu_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:async';
 
@@ -53,7 +50,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
         today.difference(DateTime.parse(widget.house.date)).inSeconds;
     String phone = widget.house.phone;
     final houseArray = [
-      widget.house.bedrooms,
+      widget.house.dormitorios,
       widget.house.bathrooms,
       widget.house.garages,
       widget.house.kitchen
@@ -108,8 +105,10 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                     child: SizedBox(
                       height: 200.0,
                       width: screenWidth,
-                      child: new Image.network(widget.house.imageUrl,
-                          fit: BoxFit.cover),
+                      child: new Image.network(
+                        widget.house.imageUrl,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   Padding(
@@ -142,20 +141,27 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
+                          widget.house.address,
+                          style: TextStyle(
+                              fontSize: 28,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        /* Text(
                           '\Precio ' + "${oCcy.format(widget.house.price)}",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 25,
                           ),
-                        ),
+                        ), */
                         Padding(
                           padding: EdgeInsets.only(top: 5),
                           child: Text(
-                            widget.house.address,
+                            'USD ' + "${oCcy.format(widget.house.price)}",
                             style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                                color: Colors.blue),
                           ),
                         ),
                       ],
@@ -165,12 +171,12 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                       child: Container(
                         height: 45,
                         width: 120,
-                        decoration: BoxDecoration(
+                        /* decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
                             color: Colors.grey[200],
                           ),
-                        ),
+                        ), */
                         child: Center(
                           child: Text(
                             sDifference >= 60
@@ -194,7 +200,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                                     ? sDifference.toString() + ' Seconds ago'
                                     : sDifference.toString() + ' Second ago',
                             style: Theme.of(context).textTheme.caption.copyWith(
-                                  color: Colors.black,
+                                  color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -211,14 +217,14 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                   bottom: 15,
                   left: 15,
                 ),
-                child: Text(
+                /* child: Text(
                   "Detalles del inmueble",
                   style: GoogleFonts.notoSans(
                     fontSize: 20,
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
                   ),
-                ),
+                ), */
               ),
               Container(
                 height: 110,

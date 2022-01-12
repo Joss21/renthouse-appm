@@ -11,40 +11,57 @@ class HouseWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Container(
-          height: 70,
-          width: 70,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              18.0,
-            ),
-            color: Colors.white,
-            border: Border.all(color: Colors.grey[300]),
-          ),
-          child: Center(
-            child: Text(
-              number,
-              style: GoogleFonts.notoSans(
-                fontSize: 20,
-                color: Colors.black,
-                fontWeight: FontWeight.w600,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            height: 70,
+            width: 70,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                18.0,
               ),
+              color: Colors.white,
+              border: Border.all(color: Colors.grey[300]),
             ),
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
+            child: Container(
+              width: 100,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: Colors.black.withOpacity(0.4),
+                  )),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      number,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      type,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ]),
+            ),
+          )
+        ]);
+
+    /*  Text(
           type,
           style: GoogleFonts.notoSans(
             fontSize: 16,
             color: Colors.black,
           ),
-        ),
-      ],
-    );
+        ), */
   }
 }

@@ -35,7 +35,7 @@ dependencies:
   flutter_form_builder: 
   image_picker_web: ^1.0.9
   path: ^1.7.0
-  image_picker_platform_interface: 
+  
 
 
 
@@ -46,7 +46,8 @@ dev_dependencies:
 
 flutter_icons:
   android: true
-  image_path_android: "assets/img/Imagen5.png"
+  image_path_android: "assets/img/icoHome.png"
+  image_path_ios: "assets/img/icoHome.png"
 
 flutter:
 

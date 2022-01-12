@@ -3,6 +3,7 @@ import 'package:RentHouse/bloc/reset_password_bloc_provider.dart';
 import 'package:RentHouse/bloc/settings_bloc.dart';
 import 'package:RentHouse/bloc/settings_bloc_provider.dart';
 import 'package:RentHouse/ui/pallete.dart';
+import 'package:RentHouse/ui/screens/myposts.dart';
 import 'package:RentHouse/ui/screens/screens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -102,8 +103,29 @@ class SettingScreenState extends State<SettingsScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Icon(Icons.security_rounded,
+                                          Icon(Icons.post_add_outlined,
                                               color: kOrange),
+                                          Text(' Mis publicaciones',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 18)),
+                                        ],
+                                      )),
+                                  onPressed: () => Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                          builder: (_) => Myposts())),
+                                ),
+                                height: 80),
+                            SizedBox(
+                                child: TextButton(
+                                  child: Padding(
+                                      padding: EdgeInsets.all(16),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Icon(Icons.security_rounded,
+                                              color: Colors.black),
                                           Text(' Cambiar la contraseña',
                                               style: TextStyle(
                                                   color: Colors.black,
@@ -126,7 +148,8 @@ class SettingScreenState extends State<SettingsScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Icon(Icons.help, color: kOrange),
+                                          Icon(Icons.bookmark_border,
+                                              color: Colors.blue),
                                           Text(' Ayuda',
                                               style: TextStyle(
                                                   color: Colors.black,
@@ -148,7 +171,7 @@ class SettingScreenState extends State<SettingsScreen> {
                                         children: [
                                           Icon(
                                             Icons.info,
-                                            color: kOrange,
+                                            color: Colors.grey,
                                           ),
                                           Text(' Acerca de',
                                               style: TextStyle(
@@ -172,7 +195,7 @@ class SettingScreenState extends State<SettingsScreen> {
                                           Icon(
                                               Icons
                                                   .subdirectory_arrow_right_outlined,
-                                              color: kOrange),
+                                              color: Colors.red),
                                           Text(' Salir',
                                               style: TextStyle(
                                                   color: Colors.black,

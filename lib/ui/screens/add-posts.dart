@@ -1,6 +1,9 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:io';
 
 import 'package:RentHouse/models/post-details.dart';
+import 'package:RentHouse/ui/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -9,13 +12,10 @@ import 'dart:async';
 import 'dart:io' as io;
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
-//import 'package:renthouse/models/post-details.dart';
-//import 'package:renthouse/ui/widgets/menu_widget.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-
 import '../pallete.dart';
-import 'home.dart';
 import 'home_page.dart';
+
 // import 'dart:html';
 
 // import 'package:mime_type/mime_type.dart';
@@ -38,11 +38,15 @@ class _AddPostState extends State<AddPost> {
   var imageUri;
   var mediaInfo;
   io.File sampleImage;
-  final _picker = ImagePicker();
-  //PickedFile imageFile;
+  //final _picker = ImagePicker();
+  File _imageFile;
+  File imageFile;
   dynamic pickImageError;
   String _retrieveDataError;
   //final ImagePicker _picker = ImagePicker();
+  final picker = ImagePicker();
+  //File imageFile;
+  //final imageFile = ImagePicker();
 
   @override
   void initState() {
@@ -52,9 +56,10 @@ class _AddPostState extends State<AddPost> {
           price: 0,
           address: '',
           date: DateTime.now().toString(),
-          bedrooms: 0,
+          dormitorios: 0,
           bathrooms: 0,
           garages: 0,
+          kitchen: 0,
           description: '',
           phone: '');
     } catch (e) {
@@ -63,27 +68,28 @@ class _AddPostState extends State<AddPost> {
   }
 
   void _onImageButtonPressed(ImageSource source, {BuildContext context}) async {
-    /*  await _displayPickImageDialog(context,
-        (double maxWidth, double maxHeight, int quality)  async {
+    await _displayPickImageDialog(context,
+        (double maxWidth, double maxHeight, int quality) async {
       try {
-        final pickedFile = await _picker.getImage(
-          source:  source,
+        _imageFile = await ImagePicker.pickImage(
+          source: source,
           maxWidth: maxWidth,
           maxHeight: maxHeight,
           imageQuality: quality,
         );
         setState(() {
-         // imageFile = pickedFile;
+          imageFile = _imageFile;
         });
       } catch (e) {
         setState(() {
           pickImageError = e;
         });
       }
-    } ); */
+    });
   }
-  /* Future<void> retrieveLostData() async {
-    final LostData response = await _picker.getLostData();
+
+  Future<void> retrieveLostData() async {
+    final LostDataResponse response = await ImagePicker.retrieveLostData();
     if (response.isEmpty) {
       return;
     }
@@ -94,7 +100,7 @@ class _AddPostState extends State<AddPost> {
     } else {
       _retrieveDataError = response.exception.code;
     }
-  } */
+  }
 
   void uploadImage() async {
     final StorageReference postImageRef =
@@ -156,7 +162,7 @@ class _AddPostState extends State<AddPost> {
                 //autovalidate: true,
                 child: Column(
                   children: <Widget>[
-                    FormBuilderDateTimePicker(
+                    /* FormBuilderDateTimePicker(
                       maxLines: 1,
                       autofocus: false,
                       name: "date",
@@ -174,26 +180,17 @@ class _AddPostState extends State<AddPost> {
                         // house.date = val.toString();
                       },
                       validator: FormBuilderValidators.required(context),
-                    ),
-                    FormBuilderTextField(
-                      name: "phone",
-                      keyboardType: TextInputType.number,
-                      initialValue: null,
-                      decoration: InputDecoration(
-                        labelText: "Número de teléfono",
-                        icon: new Icon(
-                          Icons.phone,
-                          color: kOrange,
-                        ),
-                        // border: InputBorder.none,
-                      ),
-                      onChanged: (val) => house.phone = val,
-                      validator: FormBuilderValidators.required(context),
-                    ),
+                    ), */
                     FormBuilderTextField(
                       name: "address",
                       initialValue: null,
                       decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(5.0),
+                          ),
+                        ),
                         labelText: "Dirección",
                         icon: new Icon(
                           Icons.house,
@@ -202,6 +199,21 @@ class _AddPostState extends State<AddPost> {
                         // border: InputBorder.none,
                       ),
                       onChanged: (val) => house.address = val,
+                      validator: FormBuilderValidators.required(context),
+                    ),
+                    FormBuilderTextField(
+                      name: "phone",
+                      keyboardType: TextInputType.number,
+                      initialValue: null,
+                      decoration: InputDecoration(
+                        labelText: "Número de celular",
+                        icon: new Icon(
+                          Icons.phone,
+                          color: kOrange,
+                        ),
+                        // border: InputBorder.none,
+                      ),
+                      onChanged: (val) => house.phone = val,
                       validator: FormBuilderValidators.required(context),
                     ),
                     FormBuilderTextField(
@@ -236,7 +248,7 @@ class _AddPostState extends State<AddPost> {
                               ),
                               // border: InputBorder.none,
                             ),
-                            onChanged: (val) => house.bedrooms = val,
+                            onChanged: (val) => house.dormitorios = val,
                             hint: Text('-'),
                             validator: FormBuilderValidators.required(context),
                             items: [0, 1, 2, 3, 4, 5, 6]
@@ -321,11 +333,12 @@ class _AddPostState extends State<AddPost> {
                       height: 20.0,
                     ),
                     FloatingActionButton(
-                      /* onPressed: () {
+                      onPressed: () {
                         // imagePicker();
-                        //_onImageButtonPressed(ImageSource.gallery,                 context: context);
-                      }, */
-                      onPressed: getImage,
+                        _onImageButtonPressed(ImageSource.gallery,
+                            context: context);
+                      },
+                      //onPressed: getImage,
                       heroTag: 'image',
                       tooltip: 'Pick Image from gallery',
                       child: const Icon(Icons.photo_library),
@@ -334,18 +347,18 @@ class _AddPostState extends State<AddPost> {
                       child: !kIsWeb &&
                               defaultTargetPlatform == TargetPlatform.android
                           ? FutureBuilder<void>(
-                              //future: retrieveLostData(),
+                              future: retrieveLostData(),
                               builder: (BuildContext context,
                                   AsyncSnapshot<void> snapshot) {
                                 switch (snapshot.connectionState) {
                                   case ConnectionState.none:
                                   case ConnectionState.waiting:
                                     return const Text(
-                                      'Subir fotos',
+                                      ' Subir fotos',
                                       textAlign: TextAlign.center,
                                     );
                                   case ConnectionState.done:
-                                  // return previewImage();
+                                    return previewImage();
                                   default:
                                     if (snapshot.hasError) {
                                       return Text(
@@ -354,7 +367,7 @@ class _AddPostState extends State<AddPost> {
                                       );
                                     } else {
                                       return const Text(
-                                        'You have not yet picked an image.',
+                                        'Aún no has elegido una imagen.',
                                         textAlign: TextAlign.center,
                                       );
                                     }
@@ -391,6 +404,9 @@ class _AddPostState extends State<AddPost> {
                           width: 400.0,
                           child: new RaisedButton(
                               elevation: 5.0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(16.0))),
                               // shape: new RoundedRectangleBorder(
                               //   borderRadius:
                               //    new BorderRadius.circular(30.0)),
@@ -419,12 +435,12 @@ class _AddPostState extends State<AddPost> {
     );
   }
 
-  Future getImage() async {
+  /* Future getImage() async {
     var tempImg = await ImagePicker.pickImage(source: ImageSource.gallery);
     setState(() {
       sampleImg = tempImg;
     });
-  }
+  } */
 
   Future<void> _displayPickImageDialog(
       BuildContext context, OnPickImageCallback onPick) async {
@@ -441,7 +457,7 @@ class _AddPostState extends State<AddPost> {
                 },
               ),
               FlatButton(
-                  child: const Text('PICK'),
+                  child: const Text('Seleccionar'),
                   onPressed: () {
                     onPick(null, null, null);
                     Navigator.of(context).pop();
@@ -456,7 +472,7 @@ class _AddPostState extends State<AddPost> {
     if (retrieveError != null) {
       return retrieveError;
     }
-    /* if (imageFile != null) {
+    if (imageFile != null) {
       sampleImage = io.File(imageFile.path);
       if (kIsWeb) {
         return Image.network(imageFile.path);
@@ -472,10 +488,10 @@ class _AddPostState extends State<AddPost> {
       );
     } else {
       return const Text(
-        'You have not yet picked an image.',
+        'Aún no has elegido una imagen.',
         textAlign: TextAlign.center,
       );
-    } */
+    }
   }
 
   Text _getRetrieveErrorWidget() {

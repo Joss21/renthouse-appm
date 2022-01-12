@@ -57,20 +57,20 @@ class ImageWidget extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Text(
-                "\PRECIO " + "${oCcy.format(house.price)}",
+                house.address,
                 style: GoogleFonts.notoSans(
                   fontSize: 22,
-                  fontWeight: FontWeight.w600,
                 ),
               ),
               SizedBox(
                 width: 10,
               ),
               Text(
-                house.address,
+                "USD " + "${oCcy.format(house.price)}",
                 style: GoogleFonts.notoSans(
                   fontSize: 15,
-                  color: Colors.grey,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.blue,
                 ),
               ),
             ],
@@ -83,12 +83,13 @@ class ImageWidget extends StatelessWidget {
             bottom: 10,
           ),
           child: Text(
-            house.bedrooms.toString() +
-                " bedrooms / " +
+            house.dormitorios.toString() +
+                " Dormitorios / " +
                 house.bathrooms.toString() +
-                " bathrooms / ",
+                " Baños / ... ",
             style: TextStyle(
               fontSize: 15,
+              color: Colors.grey,
             ),
           ),
         ),
