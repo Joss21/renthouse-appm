@@ -82,21 +82,6 @@ class Repository {
   Future<void> updatePassword(String docId, String password) =>
       _firestoreProvider.updatePassword(docId, password);
 
-  /* Stream<List<ArticleModel>> getAllArticles() =>
-      Stream.fromFuture(_firestoreProvider.getAllArticles());
-
-  Stream<List<DoctorModel>> getAllDoctors() =>
-      Stream.fromFuture(_firestoreProvider.getAllDoctors("doctor"));
-
-  Stream<List<DoctorModel>> getAllConsultants() =>
-      Stream.fromFuture(_firestoreProvider.getAllDoctors("con"));
-
-  Stream<List<HospitalModel>> getHospitalsByIds(List<String> ids) =>
-      Stream.fromFuture(_firestoreProvider.getHospitalsByIds(ids));
-
-  Stream<List<FoodModel>> getAllFood() =>
-      Stream.fromFuture(_firestoreProvider.getAllFood()); */
-
   Future<String> getLoggedInUserEmail() {
     return _sharedPreferenceProvider.getLoggedInUserEmail();
   }

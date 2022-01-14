@@ -83,7 +83,7 @@ class ImageWidget extends StatelessWidget {
             bottom: 10,
           ),
           child: Text(
-            house.dormitorios.toString() +
+            house.bedrooms.toString() +
                 " Dormitorios / " +
                 house.bathrooms.toString() +
                 " Baños / ... ",

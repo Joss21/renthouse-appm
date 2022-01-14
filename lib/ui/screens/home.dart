@@ -71,7 +71,7 @@ class _HomeState extends State<Home> {
           onTap: onTabTapped,
           currentIndex: _currentIndex,
           unselectedIconTheme: IconThemeData(
-            color: Colors.grey,
+            color: kOrange,
           ),
           unselectedItemColor: Colors.black,
           items: const <BottomNavigationBarItem>[

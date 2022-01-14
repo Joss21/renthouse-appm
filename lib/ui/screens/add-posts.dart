@@ -56,7 +56,7 @@ class _AddPostState extends State<AddPost> {
           price: 0,
           address: '',
           date: DateTime.now().toString(),
-          dormitorios: 0,
+          bedrooms: 0,
           bathrooms: 0,
           garages: 0,
           kitchen: 0,
@@ -206,6 +206,12 @@ class _AddPostState extends State<AddPost> {
                       keyboardType: TextInputType.number,
                       initialValue: null,
                       decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(5.0),
+                          ),
+                        ),
                         labelText: "Número de celular",
                         icon: new Icon(
                           Icons.phone,
@@ -223,6 +229,12 @@ class _AddPostState extends State<AddPost> {
                         keyboardType: TextInputType.number,
                         initialValue: null,
                         decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(5.0),
+                            ),
+                          ),
                           labelText: "Precio",
                           icon: new Icon(
                             Icons.attach_money,
@@ -241,6 +253,12 @@ class _AddPostState extends State<AddPost> {
                             autofocus: false,
                             name: "bedrooms",
                             decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                ),
+                              ),
                               labelText: "Dormitorios",
                               icon: new Icon(
                                 Icons.bed,
@@ -248,7 +266,7 @@ class _AddPostState extends State<AddPost> {
                               ),
                               // border: InputBorder.none,
                             ),
-                            onChanged: (val) => house.dormitorios = val,
+                            onChanged: (val) => house.bedrooms = val,
                             hint: Text('-'),
                             validator: FormBuilderValidators.required(context),
                             items: [0, 1, 2, 3, 4, 5, 6]
@@ -262,6 +280,12 @@ class _AddPostState extends State<AddPost> {
                             autofocus: false,
                             name: "bathrooms",
                             decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                ),
+                              ),
                               labelText: "Baños",
                               icon: new Icon(
                                 Icons.bathtub,
@@ -290,6 +314,12 @@ class _AddPostState extends State<AddPost> {
                             autofocus: false,
                             name: "garages",
                             decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                ),
+                              ),
                               labelText: "Garajes",
                               icon: new Icon(
                                 Icons.garage,
@@ -311,6 +341,12 @@ class _AddPostState extends State<AddPost> {
                             autofocus: false,
                             name: "kitchen",
                             decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                ),
+                              ),
                               labelText: "Cocina",
                               icon: new Icon(
                                 Icons.kitchen,
@@ -380,6 +416,12 @@ class _AddPostState extends State<AddPost> {
                         name: "description",
                         initialValue: null,
                         decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(5.0),
+                            ),
+                          ),
                           labelText: "Descripción",
                           icon: new Icon(
                             Icons.description,

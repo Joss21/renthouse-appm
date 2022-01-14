@@ -47,7 +47,7 @@ class HouseWidget extends StatelessWidget {
                     Text(
                       type,
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 10,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

@@ -50,7 +50,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
         today.difference(DateTime.parse(widget.house.date)).inSeconds;
     String phone = widget.house.phone;
     final houseArray = [
-      widget.house.dormitorios,
+      widget.house.bedrooms,
       widget.house.bathrooms,
       widget.house.garages,
       widget.house.kitchen
@@ -160,7 +160,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                             'USD ' + "${oCcy.format(widget.house.price)}",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                                fontSize: 18,
                                 color: Colors.blue),
                           ),
                         ),
@@ -243,6 +243,21 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                   },
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 10,
+                  bottom: 10,
+                  left: 15,
+                ),
+                child: Text(
+                  "Detalles del inmueble",
+                  style: GoogleFonts.notoSans(
+                    fontSize: 20,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
               Container(
                   child: Padding(
                 padding: const EdgeInsets.only(
@@ -259,7 +274,14 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                     color: Colors.black,
                   ),
                 ),
-              ))
+              )),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 15,
+                  bottom: 15,
+                  left: 15,
+                ),
+              )
             ],
           ),
         ),

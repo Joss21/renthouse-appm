@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
             house = new House(
                 price: result['price'],
                 address: result['address'],
-                dormitorios: result['bedrooms'],
+                bedrooms: result['bedrooms'],
                 bathrooms: result['bathrooms'],
                 garages: result['garages'],
                 kitchen: result['kitchen'],
@@ -231,8 +231,7 @@ class _HomePageState extends State<HomePage> {
                                   setState(() {
                                     filteredHouses = houseList
                                         .where((u) =>
-                                            u.dormitorios >= 3 &&
-                                            u.dormitorios <= 4)
+                                            u.bedrooms >= 3 && u.bedrooms <= 4)
                                         .toList();
                                   });
                                 });
@@ -269,7 +268,7 @@ class _HomePageState extends State<HomePage> {
                                 debouncer.run(() {
                                   setState(() {
                                     filteredHouses = houseList
-                                        .where((u) => u.garages > 0)
+                                        .where((u) => u.garages > 1)
                                         .toList();
                                   });
                                 });

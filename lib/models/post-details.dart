@@ -4,7 +4,7 @@ class House {
   House(
       {this.price,
       this.address,
-      this.dormitorios,
+      this.bedrooms,
       this.bathrooms,
       this.garages,
       this.kitchen,
@@ -15,7 +15,7 @@ class House {
       this.title});
 
   int price;
-  int dormitorios;
+  int bedrooms;
   int bathrooms;
   int garages;
   int kitchen;
@@ -31,7 +31,7 @@ class House {
       : key = snapshot.key,
         price = snapshot.value['price'],
         address = snapshot.value['address'],
-        dormitorios = snapshot.value['bedrooms'],
+        bedrooms = snapshot.value['bedrooms'],
         bathrooms = snapshot.value['bathrooms'],
         garages = snapshot.value['garages'],
         kitchen = snapshot.value['kitchen'],
@@ -45,7 +45,7 @@ class House {
     return {
       'price': price,
       'address': address,
-      'bedrooms': dormitorios,
+      'bedrooms': bedrooms,
       'bathrooms': bathrooms,
       'garages': garages,
       'kitchen': kitchen,

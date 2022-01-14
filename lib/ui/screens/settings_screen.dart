@@ -113,7 +113,7 @@ class SettingScreenState extends State<SettingsScreen> {
                                       )),
                                   onPressed: () => Navigator.of(context).push(
                                       MaterialPageRoute(
-                                          builder: (_) => Myposts())),
+                                          builder: (_) => Help())),
                                 ),
                                 height: 80),
                             SizedBox(
