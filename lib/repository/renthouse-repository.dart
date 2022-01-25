@@ -38,3 +38,27 @@ class RenthouseRepository {
   }
   
 }  */
+
+import 'dart:io';
+
+import 'package:RentHouse/models/post-details.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path/path.dart' as path;
+
+deletehouse(House house, Function houseDeleted) async {
+  if (house.imageUrl != null) {
+    StorageReference storageReference =
+        await FirebaseStorage.instance.getReferenceFromUrl(house.imageUrl);
+
+    print(storageReference.path);
+
+    await storageReference.delete();
+
+    print('Imagen Eliminado');
+  }
+
+  /* await Firestore.instance.collection('Foods').document(food.id).delete();
+  foodDeleted(food); */
+}

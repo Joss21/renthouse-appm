@@ -15,4 +15,4 @@ export 'favorite.dart';
 export 'logout_dialog.dart';
 export 'reset_password.dart';
 export 'reset_password_form_data.dart';
-
+export 'myposts.dart';

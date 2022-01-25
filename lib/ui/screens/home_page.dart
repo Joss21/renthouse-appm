@@ -56,6 +56,7 @@ class _HomePageState extends State<HomePage> {
           querySnapshot.documents.forEach((result) {
             house = new House(
                 price: result['price'],
+                title: result['title'],
                 address: result['address'],
                 bedrooms: result['bedrooms'],
                 bathrooms: result['bathrooms'],
@@ -71,31 +72,6 @@ class _HomePageState extends State<HomePage> {
           });
         });
       });
-      // db = FirebaseDatabase.instance.reference().child("houses");
-      // db.keepSynced(true);
-      // db.once().then((DataSnapshot snapshot) {
-      //   setState(() {
-      //     Map<dynamic, dynamic> values = snapshot.value;
-      //     houseList.clear();
-      //     values.forEach((key, values) {
-      //       house = new House(
-      //           amount: values['amount'],
-      //           address: values['address'],
-      //           bedrooms: values['bedrooms'],
-      //           bathrooms: values['bathrooms'],
-      //           squarefoot: values['squarefoot'],
-      //           garages: values['garages'],
-      //           kitchen: values['kitchen'],
-      //           date: values['date'],
-      //           imageUrl: values['imageUrl'],
-      //           description: values['description'],
-      //           phone: values['phone']);
-      //       // print(key);
-      //       houseList.add(house);
-      //       filteredHouses = houseList;
-      //     });
-      //   });
-      // });
     } catch (e) {
       print(e);
     }
@@ -103,13 +79,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    //final user = Provider.of<User>(context);
-    // var screenWidth = MediaQuery.of(context).size.width;
-    /* SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
-      ),
-    ); */
     return Scaffold(
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: SingleChildScrollView(
@@ -159,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               Divider(
-                color: Colors.yellow,
+                color: Colors.white,
                 thickness: .2,
               ),
               Container(

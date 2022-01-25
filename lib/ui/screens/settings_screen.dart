@@ -3,20 +3,10 @@ import 'package:RentHouse/bloc/reset_password_bloc_provider.dart';
 import 'package:RentHouse/bloc/settings_bloc.dart';
 import 'package:RentHouse/bloc/settings_bloc_provider.dart';
 import 'package:RentHouse/ui/pallete.dart';
+import 'package:RentHouse/ui/screens/editposts.dart';
 import 'package:RentHouse/ui/screens/myposts.dart';
 import 'package:RentHouse/ui/screens/screens.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-/* import 'package:renthouse/bloc/logout_bloc_provider.dart';
-import 'package:renthouse/bloc/reset_password_bloc_provider.dart';
-import 'package:renthouse/bloc/settings_bloc.dart';
-import 'package:renthouse/bloc/settings_bloc_provider.dart';
-import 'package:renthouse/ui/pallete.dart';
-import 'package:renthouse/ui/screens/reset_password.dart'; */
-
-import 'about_us.dart';
-import 'help.dart';
-import 'logout_dialog.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -97,24 +87,23 @@ class SettingScreenState extends State<SettingsScreen> {
                             ),
                             SizedBox(
                                 child: TextButton(
-                                  child: Padding(
-                                      padding: EdgeInsets.all(16),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Icon(Icons.post_add_outlined,
-                                              color: kOrange),
-                                          Text(' Mis publicaciones',
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 18)),
-                                        ],
-                                      )),
-                                  onPressed: () => Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                          builder: (_) => Help())),
-                                ),
+                                    child: Padding(
+                                        padding: EdgeInsets.all(16),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Icon(Icons.post_add_outlined,
+                                                color: kOrange),
+                                            Text(' Mis publicaciones',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 18)),
+                                          ],
+                                        )),
+                                    onPressed: () => Navigator.of(context).push(
+                                        new MaterialPageRoute(
+                                            builder: (context) => MyPosts()))),
                                 height: 80),
                             SizedBox(
                                 child: TextButton(
@@ -124,8 +113,7 @@ class SettingScreenState extends State<SettingsScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Icon(Icons.security_rounded,
-                                              color: Colors.black),
+                                          Icon(Icons.password, color: kOrange),
                                           Text(' Cambiar la contraseña',
                                               style: TextStyle(
                                                   color: Colors.black,
@@ -148,9 +136,9 @@ class SettingScreenState extends State<SettingsScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Icon(Icons.bookmark_border,
-                                              color: Colors.blue),
-                                          Text(' Ayuda',
+                                          Icon(Icons.contact_phone,
+                                              color: kOrange),
+                                          Text(' Contactar con soporte',
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 18)),
@@ -158,7 +146,7 @@ class SettingScreenState extends State<SettingsScreen> {
                                       )),
                                   onPressed: () => Navigator.of(context).push(
                                       MaterialPageRoute(
-                                          builder: (_) => Help())),
+                                          builder: (_) => Contact())),
                                 ),
                                 height: 80),
                             SizedBox(
@@ -171,7 +159,7 @@ class SettingScreenState extends State<SettingsScreen> {
                                         children: [
                                           Icon(
                                             Icons.info,
-                                            color: Colors.grey,
+                                            color: Colors.blueAccent,
                                           ),
                                           Text(' Acerca de',
                                               style: TextStyle(
@@ -239,7 +227,7 @@ class SettingScreenState extends State<SettingsScreen> {
         });
   }
 
-  Widget userImage() {
+  /* Widget userImage() {
     return StreamBuilder(
         stream: _bloc.getUserImage(),
         initialData: null,
@@ -257,7 +245,7 @@ class SettingScreenState extends State<SettingsScreen> {
                 fit: BoxFit.cover, height: 100, width: 100);
           }
         });
-  }
+  } */
 
   void showErrorMessage(String message) {
     ScaffoldMessenger.of(context)

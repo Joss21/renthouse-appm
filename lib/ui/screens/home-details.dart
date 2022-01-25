@@ -1,4 +1,5 @@
 import 'package:RentHouse/models/post-details.dart';
+import 'package:RentHouse/ui/pallete.dart';
 import 'package:RentHouse/ui/widgets/floating_widget.dart';
 import 'package:RentHouse/ui/widgets/house_widget.dart';
 import 'package:RentHouse/ui/widgets/menu_widget.dart';
@@ -141,12 +142,47 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          widget.house.address,
+                          widget.house.title,
                           style: TextStyle(
                               fontSize: 28,
                               color: Colors.black,
                               fontWeight: FontWeight.w600),
                         ),
+                        /* Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: 
+                          Text(
+                            widget.house.address,
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600),
+                                
+                          ),
+                          
+                        ), */
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.location_on,
+                                    color: Colors.grey,
+                                  ),
+                                  Text(
+                                    widget.house.address,
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 20),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+
                         /* Text(
                           '\Precio ' + "${oCcy.format(widget.house.price)}",
                           style: TextStyle(
@@ -245,12 +281,12 @@ class _PropertyDetailsState extends State<PropertyDetails> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 10,
-                  bottom: 10,
-                  left: 15,
+                  top: 5,
+                  bottom: 5,
+                  left: 5,
                 ),
                 child: Text(
-                  "Detalles del inmueble",
+                  "Descripción:",
                   style: GoogleFonts.notoSans(
                     fontSize: 20,
                     color: Colors.black,
@@ -275,13 +311,11 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                   ),
                 ),
               )),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 15,
-                  bottom: 15,
-                  left: 15,
-                ),
-              )
+              new SizedBox(
+                width: 100,
+                height: 100,
+              ),
+              Container(margin: EdgeInsets.only(top: 20.0, bottom: 20.0))
             ],
           ),
         ),

@@ -57,7 +57,7 @@ class ImageWidget extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Text(
-                house.address,
+                house.title,
                 style: GoogleFonts.notoSans(
                   fontSize: 22,
                 ),
@@ -88,7 +88,7 @@ class ImageWidget extends StatelessWidget {
                 house.bathrooms.toString() +
                 " Baños / ... ",
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 18,
               color: Colors.grey,
             ),
           ),

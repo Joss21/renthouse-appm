@@ -1,9 +1,8 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'dart:io';
 
 import 'package:RentHouse/models/post-details.dart';
 import 'package:RentHouse/ui/screens/screens.dart';
+import 'package:RentHouse/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -54,6 +53,7 @@ class _AddPostState extends State<AddPost> {
     try {
       house = House(
           price: 0,
+          title: '',
           address: '',
           date: DateTime.now().toString(),
           bedrooms: 0,
@@ -182,6 +182,27 @@ class _AddPostState extends State<AddPost> {
                       validator: FormBuilderValidators.required(context),
                     ), */
                     FormBuilderTextField(
+                      name: "title",
+                      initialValue: null,
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(5.0),
+                          ),
+                        ),
+                        labelText: "Título",
+                        icon: new Icon(
+                          Icons.edit_attributes,
+                          color: kOrange,
+                        ),
+                        // border: InputBorder.none,
+                      ),
+                      onChanged: (val) => house.title = val,
+                      validator: FormBuilderValidators.required(context),
+                    ),
+                    Container(margin: EdgeInsets.only(top: 5.0, bottom: 5.0)),
+                    FormBuilderTextField(
                       name: "address",
                       initialValue: null,
                       decoration: InputDecoration(
@@ -201,6 +222,7 @@ class _AddPostState extends State<AddPost> {
                       onChanged: (val) => house.address = val,
                       validator: FormBuilderValidators.required(context),
                     ),
+                    Container(margin: EdgeInsets.only(top: 5.0, bottom: 5.0)),
                     FormBuilderTextField(
                       name: "phone",
                       keyboardType: TextInputType.number,
@@ -222,6 +244,7 @@ class _AddPostState extends State<AddPost> {
                       onChanged: (val) => house.phone = val,
                       validator: FormBuilderValidators.required(context),
                     ),
+                    Container(margin: EdgeInsets.only(top: 5.0, bottom: 5.0)),
                     FormBuilderTextField(
                         maxLines: 1,
                         autofocus: false,
@@ -244,6 +267,7 @@ class _AddPostState extends State<AddPost> {
                         ),
                         onChanged: (val) => house.price = int.parse(val),
                         validator: FormBuilderValidators.required(context)),
+                    Container(margin: EdgeInsets.only(top: 5.0, bottom: 5.0)),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -275,6 +299,8 @@ class _AddPostState extends State<AddPost> {
                                 .toList(),
                           ),
                         ),
+                        Container(
+                            margin: EdgeInsets.only(top: 5.0, bottom: 5.0)),
                         Expanded(
                           child: FormBuilderDropdown(
                             autofocus: false,
@@ -283,7 +309,7 @@ class _AddPostState extends State<AddPost> {
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.grey),
                                 borderRadius: BorderRadius.all(
-                                  Radius.circular(5.0),
+                                  Radius.circular(2.0),
                                 ),
                               ),
                               labelText: "Baños",
@@ -305,6 +331,7 @@ class _AddPostState extends State<AddPost> {
                         ),
                       ],
                     ),
+                    Container(margin: EdgeInsets.only(top: 5.0, bottom: 5.0)),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -336,6 +363,8 @@ class _AddPostState extends State<AddPost> {
                                 .toList(),
                           ),
                         ),
+                        Container(
+                            margin: EdgeInsets.only(top: 5.0, bottom: 5.0)),
                         Expanded(
                           child: FormBuilderDropdown(
                             autofocus: false,
@@ -379,6 +408,7 @@ class _AddPostState extends State<AddPost> {
                       tooltip: 'Pick Image from gallery',
                       child: const Icon(Icons.photo_library),
                     ),
+                    Container(margin: EdgeInsets.only(top: 5.0, bottom: 5.0)),
                     Center(
                       child: !kIsWeb &&
                               defaultTargetPlatform == TargetPlatform.android
@@ -412,6 +442,7 @@ class _AddPostState extends State<AddPost> {
                             )
                           : previewImage(),
                     ),
+                    Container(margin: EdgeInsets.only(top: 5.0, bottom: 5.0)),
                     FormBuilderTextField(
                         name: "description",
                         initialValue: null,
@@ -460,7 +491,7 @@ class _AddPostState extends State<AddPost> {
                                 if (formKey.currentState.saveAndValidate()) {
                                   uploadImage();
                                 }
-                              }),
+                              }), 
                         )),
                     FlatButton(
                         child: new Text(

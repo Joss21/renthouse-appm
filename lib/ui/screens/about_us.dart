@@ -7,6 +7,7 @@ class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        //resizeToAvoidBottomInset: false,
         appBar: AppBar(
             centerTitle: true,
             backgroundColor: kOrange,
@@ -35,24 +36,30 @@ class AboutUs extends StatelessWidget {
                             fontSize: 22,
                             fontWeight: FontWeight.bold)),
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(32, 16, 32, 0),
-                    child: Text("Nombre: RenthHouse Quito",
-                        style: TextStyle(color: Colors.black, fontSize: 20)),
+                  new Center(
+                    child: Image(
+                        image: new AssetImage("assets/img/icoHome.png"),
+                        height: 85),
                   ),
+                  /* Padding(
+                    padding: EdgeInsets.fromLTRB(32, 16, 32, 0),
+                    child: Text("RenthHouse Quito",
+                        style: TextStyle(color: Colors.black, fontSize: 21)),
+                  ), */
                   Padding(
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 0),
                     child: Text(
-                      "RentHouse Quito es una aplicación móvil sencilla para publicar y buscar los inmuebles en la ciudad de Quito, esto es un gran ahorro de tiempo cuando necesita moverse rápidamente en alquilar de una propiedad, a través de esta aplicación pueden incrementar sus valores para sus clientes brindándoles información valiosa que ayude a guiar.",
-                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      "RentHouse Quito es una aplicación móvil sencilla para publicar y buscar los inmuebles en la ciudad de Quito, esto es un gran ahorro de tiempo cuando necesita moverse rápidamente en alquilar de una propiedad, dotando a esta aplicación con una gran variedad de viviendas en alquiler donde los usuarios tengan la capacidad de escoger la que sea de su mayor conveniencia.",
+                      style: TextStyle(color: Colors.black, fontSize: 17),
                       textAlign: TextAlign.center,
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 0),
                     child: Text("Versión : 1.0.0",
-                        style: TextStyle(color: Colors.black, fontSize: 16)),
-                  )
+                        style: TextStyle(color: Colors.black, fontSize: 17)),
+                  ),
+                  Container(margin: EdgeInsets.only(top: 20.0, bottom: 20.0))
                 ])));
   }
 }

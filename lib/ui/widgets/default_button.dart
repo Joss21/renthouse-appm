@@ -15,10 +15,12 @@ class DefaultButton extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
         decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16), color: kOrange),
+        /* BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: kOrange,
           border: new Border.all(color: kOrange, width: 2.0),
-        ),
+        ), */
         height: size.height * 0.08,
         width: size.width * 0.8,
         child: new OutlinedButton(
@@ -45,7 +47,7 @@ class DefaultButton extends StatelessWidget {
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.pressed))
           return BorderSide(
-            color: Colors.grey,
+            //color: Colors.grey,
             width: 2,
           );
         else

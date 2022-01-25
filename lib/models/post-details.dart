@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class House {
@@ -27,21 +28,36 @@ class House {
   String phone;
   String title;
 
-  House.fromSnapshot(DataSnapshot snapshot)
-      : key = snapshot.key,
-        price = snapshot.value['price'],
-        address = snapshot.value['address'],
-        bedrooms = snapshot.value['bedrooms'],
-        bathrooms = snapshot.value['bathrooms'],
-        garages = snapshot.value['garages'],
-        kitchen = snapshot.value['kitchen'],
-        date = snapshot.value['date'],
-        imageUrl = snapshot.value['imageUrl'],
-        description = snapshot.value['description'],
-        phone = snapshot.value['phone'],
-        title = snapshot.value['title'];
-
+  House.fromSnapshot(DocumentSnapshot document)
+      : key = document['key'],
+        price = document['price'],
+        address = document['address'],
+        bedrooms = document['bedrooms'],
+        bathrooms = document['bathrooms'],
+        garages = document['garages'],
+        kitchen = document['kitchen'],
+        date = document['date'],
+        imageUrl = document['imageUrl'],
+        description = document['description'],
+        phone = document['phone'],
+        title = document['title'];
   toJson() {
+    return {
+      'title': title,
+      'price': price,
+      'address': address,
+      'bedrooms': bedrooms,
+      'bathrooms': bathrooms,
+      'garages': garages,
+      'kitchen': kitchen,
+      'date': date,
+      'imageUrl': imageUrl,
+      'description': description,
+      'phone': phone,
+    };
+  }
+
+  /* Map<String, dynamic> toMap() {
     return {
       'price': price,
       'address': address,
@@ -53,7 +69,6 @@ class House {
       'imageUrl': imageUrl,
       'description': description,
       'phone': phone,
-      'title': title,
     };
-  }
+  } */
 }
